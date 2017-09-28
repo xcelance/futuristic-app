@@ -9,7 +9,7 @@
 			<div class="col-md-8 col-sm-8">
 				<div class="right_side_nav">
 					<ul>
-					<a href="#"><li class="custom_sign">Sign Up</li></a>
+					<a href="{{url('signup')}}"><li class="custom_sign">Sign Up</li></a>
 					<a href="#"><li class="custom_login">Login</li></a>
 					</ul>
 					

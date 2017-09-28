@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Mail\EmailVerification;
-use Mail;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request;
@@ -15,8 +12,7 @@ use Illuminate\Support\Facades\Input;
 use View;
 use Session;
 use DB;
-use Socialite;
-use SocialAccount;
+
 
 class UserController extends Controller {
 
@@ -28,33 +24,33 @@ class UserController extends Controller {
       public function userSignup() {
         
         DB::enableQueryLog();
-        // echo '<pre>';
-        // print_r($_REQUEST);
+        echo '<pre>';
+        print_r($_REQUEST);
         
         $rules = ['email' => 'required|string|email|max:255|unique:users', 'password' => 'required',
-                'password_confirmation' => 'required|same:password'];
+                'firstname' => 'required', 'lastname' => 'required', 'school_name' => 'required', 'dob' => 'required', 'yearinschool' => 'required', 'reference' => 'required','maingoal' => 'required',];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
            // handler errors
-           $errors = $validator->errors();
-                      
+           $errors = $validator->errors();                      
            return redirect('signup')->withErrors($errors)->withInput();
         }
 
         if (Request::isMethod('post')) {
-        
-            $name = Request::get('name');
-            $name = explode(' ', $name);            
-            $fname = reset($name);
+
+            $dob = explode("/",Request::get('dob'));
+            $dateofbirth = $dob[2].'-'.$dob[1].'-'.$dob[0];
             
-            $user =  User::create(['name' => Request::get('name'), 'firstName' => $fname, 'email' => Request::get('email'), 'password' => bcrypt(Request::get('password')), 'email_token' => str_random(30),]);
-            //print_r(DB::getQueryLog());        
+            $user =  User::create(['firstname' => Request::get('firstname'), 'lastname' => Request::get('lastname'), 'email' => Request::get('email'), 'password' => bcrypt(Request::get('password')), 'role' => '0', 'school_name' => Request::get('school_name'), 'dob' => $dateofbirth, 'year_in_school' => Request::get('yearinschool'), 'email_token' => str_random(30),]);
+            // echo '<pre>';
+            // print_r(DB::getQueryLog());        
+            // die;
         }
               
-        $email = new EmailVerification(new User(['email_token' => $user->email_token, 'name' => $user->name]));
-        Mail::to($user->email)->send($email);
-        
-        Session::flash('success', 'Signup successfully! Please check your mail for verification...');
+        // $email = new EmailVerification(new User(['email_token' => $user->email_token, 'name' => $user->name]));
+        // Mail::to($user->email)->send($email);        
+        // Session::flash('success', 'Signup successfully! Please check your mail for verification...');
+        Session::flash('success', 'Signup successfully! ');
         
         return View::make('auth.thankyou');        
     }

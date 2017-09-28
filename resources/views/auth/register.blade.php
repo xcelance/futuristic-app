@@ -1,76 +1,116 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+<section class="sign_up_outer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8">
+            <div class="singup_left_outer">
+                <h3>Signup</h3>
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul class="errors99">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="form-horizontal" role="form" method="POST">
+                    {{ csrf_field() }}
+                    <div class="first_outer01">
+                        <input class="fname" type="text" value="" name="firstname" placeholder="First Name" required="">
+                        <input class="lname" type="text" value="" name="lastname" placeholder="Last Name" required="">
+                    </div>
+                    <div class="first_outer02">
+                        <input type="text" value="" name="school_name" placeholder="School Name" class="school_name" required="">
+                        <input type="email" value="" name="email" placeholder="Email Address" class="email_add" required="">
+                        <input type="text" value="" name="dob" placeholder="Date of Birth: (DD/MM/YYYY)" class="dob" required="">
+                    </div>
+                    <div class="drop_outer">
+                        <select class="custom_select" name="yearinschool" required="">
+                            <option value="">Year in School</option>
+                            <option value="7">Year7</option>
+                            <option value="8">Year8</option>
+                            <option value="9">Year9</option>
+                            <option value="10">Year10</option>
+                            <option value="11">Year11</option>
+                            <option value="12">Year12</option>
+                            <option value="13">Year13</option>
+                            <option value="14">Year14</option>
+                        </select>
+                        <input type="password" value="" name="password" class="custom_password" placeholder="Set your password" required="">
+                    </div>
+                    <div class="drop_outer">
+                        <select class="custom_select02" name="reference" required="">
+                            <option value="">How did you find out about us?</option>
+                            <option value="google">Google</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="school">My school</option>
+                            <option value="parent">Parent</option>
+                            <option value="friend">Friend</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="drop_outer">
+                        <select class="custom_select02" name="maingoal" required="">
+                            <option value="">What's your main goal of using Futuristic?</option>
+                            <option value="job">Get a job</option>
+                            <option value="internship">Get an internship</option>
+                            <option value="scholarship">Scholarship</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="first_outer02">
+                        <input type="text" value="" name="referral_code" placeholder="Referral Code" class="school_name" />
+                        <div class="btn_outer101">
+                            <button type="submit" name="signup" value="register" class="btn btn-primary">Start your account</button>
                         </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        <div class="term_condition">
+                            <a href="#"><span class="terms">Terms of use</span></a>
+                            <a href="#"><span class="terms">Privacy policy</span></a>
+                            <span class="terms">&copy; Futuristic Skills and Capabilities 2017. All Right Reserved</span>
+                        </div> 
+                    </div>
+                </form>
+            </div>
+            </div>
+            <div id="carousel" class="col-md-4 col-sm-4">
+            <div class=" singup_right_outer">
+                <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
+                  <!-- Carousel indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                    <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
+                  </ol>
+                  <!-- Carousel items -->
+                  <div class="carousel-inner">
+                    <div class="active item">
+                    <div class="custom_heading"><h3>student testimonial</h3> </div>
+                    <div class="profile-circle"><img class="circle" src="{{url('/public/images/circle1.jpg')}}"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                     <div class="item">
+                    <div class="custom_heading"><h3>student testimonial</h3> </div>
+                    <div class="profile-circle"><img class="circle" src="{{url('/public/images/circle2.jpg')}}"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                     <div class="item">
+                    <div class="custom_heading"><h3>student testimonial</h3> </div>
+                    <div class="profile-circle"><img class="circle" src="{{url('/public/images/circle3.jpg')}}"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="about_outer">
+                    <h3>Futuristicskills About</h3>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+  </section>
 @endsection
