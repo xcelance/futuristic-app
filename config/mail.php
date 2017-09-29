@@ -16,7 +16,8 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+
+    'driver' => env('MAIL_DRIVER', 'sendmail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +57,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'andsraj@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Ands Raj'),
     ],
 
     /*
@@ -84,9 +85,10 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('andsraj@gmail.com'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('Andsraj@1983'),
+    'sendmail' => '/usr/sbin/sendmail -t -i',
 
     /*
     |--------------------------------------------------------------------------

@@ -89,7 +89,7 @@
                   <div class="carousel-inner">
                     <div class="active item">
                     <div class="custom_heading"><h3>student testimonial</h3> </div>
-                    <div class="profile-circle"><img class="circle" src="{{url('/public/images/circle1.jpg')}}"></div>
+                    <div class="profile-circle"><img class="circle" src="{{url('/public/images/circle.jpg')}}"></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
                      <div class="item">
