@@ -55,6 +55,10 @@ Route::get('login', function () {
 });
 Route::post('login', 'UserController@userLogin');
 Route::get('register/verify/{token}', 'UserController@verify'); 
+Route::get('stripe', array('as' => 'paywithstripe','uses' => 'PaymentController@payWithStripe',));
+Route::post('stripe', array('as' => 'stripe','uses' => 'PaymentController@postPaymentWithStripe',));
 
 Auth::routes();
     Route::get('logout','UserController@logout');
+    
+
