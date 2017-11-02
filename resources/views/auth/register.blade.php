@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-sm-8">
             <div class="singup_left_outer">
-                <h3>Signup</h3>
+                <h3>Sign Up</h3>
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -30,14 +30,12 @@
                     <div class="drop_outer">
                         <select class="custom_select" name="yearinschool" required="">
                             <option value="">Year in School</option>
-                            <option value="7">Year7</option>
-                            <option value="8">Year8</option>
-                            <option value="9">Year9</option>
-                            <option value="10">Year10</option>
-                            <option value="11">Year11</option>
-                            <option value="12">Year12</option>
-                            <option value="13">Year13</option>
-                            <option value="14">Year14</option>
+                            <option value="7">Year 7</option>
+                            <option value="8">Year 8</option>
+                            <option value="9">Year 9</option>
+                            <option value="10">Year 10</option>
+                            <option value="11">Year 11</option>
+                            <option value="12">Year 12</option>                        
                         </select>
                         <input type="password" value="" name="password" class="custom_password" placeholder="Set your password" required="">
                     </div>

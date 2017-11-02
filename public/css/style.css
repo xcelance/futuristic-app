@@ -1,380 +1,1029 @@
 body{
-
-
 }
+/********custom css****************/
+
+.sign-up-form-outer {
+	margin-top: 70px;
+	margin-bottom: 200px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 30px 40px;
+}
+.border {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 30px 30px;
+}
+.sign-up-form-outer .form-horizontal .form-group {
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+.dasboard-banner-section {
+	margin-top: 90px;
+	margin-bottom: 220px;
+}
+.school_name, .payment_mode {
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+.dob {
+	margin-bottom: 7px;
+}
+.teacher_modules_list {
+	margin-top: 60px;
+	margin-bottom: 380px;
+}
+.profile-banner-section.front_profile {
+	margin-top: 60px;
+	margin-bottom: 140px;
+}
+.custom_p {
+	font-size: 16px;
+}
+.signin_box1 a:hover {
+	color: #fff;
+	text-decoration: none;
+	padding:0px;
+}
+.view {
+	margin-right: 10px;
+}
+.modules_list.student {
+	padding-bottom: 150px !important;
+	padding-top: 80px !important;
+}
+   
+
+/********custom css end****************/
 a:hover{
-
 text-decoration:none;
-
 }
+
 header{
+
 background-color:#061551;
+
 color:#fff;
-}
-.right_side_nav {
-  text-align: right;
-}
-.right_side_nav ul {
-  list-style: outside none none;
-}
-.right_side_nav ul li {
-  display: inline-block;
-  margin-top: 15px;
-}
-.custom_sign {
-  border: 2px solid #fff;
-  border-radius: 3px;
-  margin-right: 20px;
-  padding: 10px 30px;
-  text-transform: uppercase;
-  color: #fff;
+
 }
 
-.custom_login {
-  border: 2px solid #fff;
-  padding: 10px 40px;
-  border-radius: 3px;
-  margin-right: 20px;
-  text-transform:uppercase;
-  color: #fff;
+
+.right_side_nav {
+
+  text-align: right;
+
 }
-.logo_outer h1 {
-  font-size: 25px;
-  text-transform: uppercase;
-  color: #fff;
-}
-footer {
-  background-color: #061551;
-  color: #ffffff;
-  padding: 10px 0 0;
-}
-.soical_media ul {
+
+.right_side_nav ul {
+
   list-style: outside none none;
+
+}
+
+.right_side_nav ul li {
+
+  display: inline-block;
+
+  margin-top: 32px;
+
+}
+
+.custom_sign a {
+
+  border: 2px solid #fff;
+
+  border-radius: 3px;
+
+  margin-right: 20px;
+
+  padding: 10px 30px;
+
+  text-transform: uppercase;
+
+  color: #fff;
+
+}
+
+
+
+.custom_login a {
+
+  border: 2px solid #fff;
+
+  padding: 10px 40px;
+
+  border-radius: 3px;
+
+  margin-right: 20px;
+
+  text-transform:uppercase;
+
+  color: #fff;
+
+}
+
+.logo_outer h1 {
+
+  font-size: 25px;
+
+  text-transform: uppercase;
+
+  color: #fff;
+
+}
+
+footer {
+
+  background-color: #061551;
+
+  color: #ffffff;
+
+  padding: 10px 0 0;
+
+}
+
+.soical_media ul {
+
+  list-style: outside none none;
+
   text-align:center;
+
 }
+
 .soical_media ul li{
+
 display:inline-block;
+
 margin-right:15px;
+
 }
+
 .soical_media .fa {
+
   font-size: 20px;
+
 }
+
 .copy_right_outer {
+
   text-align: center;
+
 }
+
 .banner{
+
  background-image: url("../images/banner.jpg");
+
  height:520px;
+
  width:100%;
 
+
+
 }
+
 .banner{
+
  margin-top:0px !important;
 
+
+
 }
+
 .btn_outer button {
+
   background-color: rgba(0, 0, 0, 0);
+
   border: 2px solid #ffffff;
+
   padding: 10px 40px;
+
 }
+
 .btn_outer button:hover {
+
   border:2px solid #2ea8ff;	
+
    background-color: #2ea8ff;
+
 }
+
 .overlap_content {
+
   color: #ffffff;
+
   margin-top: 10%;
+
   text-align: center;
+
 }
+
 .overlap_content h1 {
+
   font-size: 60px;
+
   text-transform: capitalize;
+
 }
+
 .overlap_content p {
+
   font-size: 17px;
+
   line-height: 26px;
+
 }
+
 .btn_outer {
+
   margin-top: 30px;
+
 }
+
 .first_outer01 .fname {
+
   margin-right: 10px;
+
   width: 40%;
+
 }
+
 .singup_left_outer input{
+
   padding: 5px 10px;
+
 }
+
 .first_outer01 .lname {
+
   width: 58%;
+
 }
+
 .first_outer01, .drop_outer {
+
   margin-bottom: 20px;
+
 }
+
 .first_outer02 input {
+
   margin-bottom: 20px;
+
   width: 100%;
+
 }
+
 .custom_select {
+
   margin-right: 10px;
+
   padding: 7px 5px;
+
   width: 57%;
+
 }
+
 .custom_password {
+
   width: 41%;
+
 }
+
 .custom_select02 {
+
   padding: 7px 5px;
+
   width: 100%;
+
 }
+
 .btn_outer101 .btn {
+
   background-color: #2ea8ff;
+
   border: medium none rgba(0, 0, 0, 0);
+
   font-size: 16px;
+
   padding: 12px;
+
   text-transform: capitalize;
+
   width: 100%;
+
   margin-bottom:20px;
+
 }
+
 .term_condition a {
+
   text-decoration: none;
+
 }
+
 .term_condition span {
+
   margin-right: 50px;
+
 }
+
 .term_condition {
+
   margin-bottom: 20px;
+
 }
+
+
 
 /***************/
+
 /*-------------------------------*/
+
 /*      Code snippet by          */
+
 /*      @maridlcrmn              */
+
 /*-------------------------------*/
 
 
-section {
+
+
+
+/**section {
+
     padding-top: 10px;
+
     padding-bottom: 100px;
-}
+
+}**/
+
+
 
 .quote {
+
     color: rgba(0,0,0,.1);
+
     text-align: center;
+
     margin-bottom: 30px;
+
 }
 
+
+
 /*-------------------------------*/
+
 /*    Carousel Fade Transition   */
+
 /*-------------------------------*/
+
+
 
 #fade-quote-carousel.carousel {
+
   padding-bottom: 60px;
+
   border-bottom: 1px solid #ccc;
+
 }
+
 #fade-quote-carousel.carousel .carousel-inner .item {
+
   opacity: 0;
+
   -webkit-transition-property: opacity;
+
       -ms-transition-property: opacity;
+
           transition-property: opacity;
+
 }
+
 #fade-quote-carousel.carousel .carousel-inner .active {
+
   opacity: 1;
+
   -webkit-transition-property: opacity;
+
       -ms-transition-property: opacity;
+
           transition-property: opacity;
+
 }
+
 #fade-quote-carousel.carousel .carousel-indicators {
+
   bottom: 10px;
+
 }
+
 #fade-quote-carousel.carousel .carousel-indicators > li {
+
   background-color: #e84a64;
+
   border: none;
+
 }
+
 #fade-quote-carousel blockquote {
+
     text-align: center;
+
     border: none;
+
 }
+
+
 
 /*****************/
+
 .custom_heading h3 {
+
   margin-bottom: 30px;
+
   text-align: center;
+
   text-transform: capitalize;
-}
-.singup_right_outer p {
-  font-size: 16px;
-  margin-top: 20px;
-  padding: 0 20px;
-  text-align: center;
-}
-.about_outer h3 {
-  text-align: center;
-  text-transform: capitalize;
-  margin-bottom: 10px;
-}
-.singup_right_outer {
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  padding: 20px 20px 40px;
-}
-.singup_left_outer {
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  padding: 10px 20px;
-}
-.singup_left_outer h3 {
-  margin-bottom: 20px;
-}
-#fade-quote-carousel.carousel .carousel-indicators > li {
-  background-color: #061551 !important;
-  border: medium none;
-}
-.profile-circle {
-  margin: 0 auto;
-  text-align: center;
-}
-#fade-quote-carousel .profile-circle img {
-  border-radius: 100px;
-  height: 100px;
-  margin: 0 auto;
-  text-align: center;
-  width: 100px;
-}
-.signin_right_side {
-  border: 1px solid #cccccc;
-  padding: 10px 20px;
-  border-radius:4px;
-}
-.signin_box1 {
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  color: #ffffff;
-  padding: 4px 10px;
-  margin: 10px 0 20px;
-}
-.signin_left_side h5 {
-  font-size: 18px;
-}
-.student_check input, .teacher_outer input {
-  margin-right: 7px;
-}
-.student_check {
-  margin-right: 10px;
-}
-.check_outer {
-  margin-bottom: 15px;
-}
-.user_outer input, .password_outer input {
-  margin-bottom: 15px;
-  padding: 5px 10px;
-  width: 100%;
-}
-.signin_box1:hover {
-  background-color: #2ea8ff;
-  color: #ffffff !important;
-  cursor: pointer;
-}
-.signin_box1 a h5:hover {
-  color: #ffffff;
-}
-.signin_right_side .btn_outer101 {
-  margin-top: 15px;
-}
-.forgotten_outer {
-  text-align: right;
-}
-.modal-filed label {
-  width: 100%;
-}
-.modal_btn button {
-  margin-top: 15px;
-  padding: 7px 30px;
-}
-.modal-dialog {
-  width: 450px !important;
-}
-.modal-filed input {
-  padding: 5px 0;
-  width: 100%;
-}
-.modal-dialog {
-  margin: 150px auto;
-}
-.terms input {
-  margin-right: 10px;
-}
-.account_setting_outer {
-  padding-bottom: 40px;
-  padding-top: 60px;
-}
-.middle_content_outer  p {
-  font-size: 16px;
-  line-height: 28px;
-  text-align: justify;
-}
-.icon_outer img {
-  width: 80px;
-  margin-right: 55px;
-  margin-top:20px;
-}
-.modules_list {
-  padding-bottom: 250px;
-  padding-top: 100px;
-}
-.modules_list h5 {
-  font-size: 26px;
-  text-transform: capitalize;
-  text-align: center;
-}
-.student_middle_outer {
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  padding: 20px 30px;
-  text-align: center;
-}
-.student_middle_outer h3 {
-  font-size: 32px;
-  text-align: center;
-}
-.student_middle_outer p {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  line-height: 28px;
-}
-.less_plan_outer {
-  float: left;
-  width: 50%;
-}
-.less_plan_outer {
-  float: left;
-  margin-right: 10px;
-  width: 50%;
-}
-.less_plan_videoouter button {
-  font-size: 22px;
-  padding: 10px 75px;
-}
-.less_plan_outer button {
-  font-size: 22px;
-  padding: 10px 95px;
-}
-.banner .navbar-default {
-  background-color: rgba(0, 0, 0, 0);
-  border-color: rgba(0, 0, 0, 0);
-  color: #ffffff;
-}
-.banner .navbar-default .navbar-nav > li > a {
-  color: #ffffff !important;
-  font-size: 18px;
-}
-.signin_outer92 {
-  margin-bottom: 20px;
-  margin-top: 100px;
-}
-.sign_up_outer {
-  margin-top: 90px;
-}
-.student_modules01, .teacher_modules01 {
-  margin-top: 100px;
+
 }
 
+.singup_right_outer p {
+
+  font-size: 16px;
+
+  margin-top: 20px;
+
+  padding: 0 20px;
+
+  text-align: center;
+
+}
+
+.about_outer h3 {
+
+  text-align: center;
+
+  text-transform: capitalize;
+
+  margin-bottom: 10px;
+
+}
+
+.singup_right_outer {
+
+  border: 1px solid #cccccc;
+
+  border-radius: 5px;
+
+  padding: 20px 20px 40px;
+
+}
+
+.singup_left_outer {
+
+  border: 1px solid #cccccc;
+
+  border-radius: 5px;
+
+  padding: 10px 20px;
+
+}
+
+.singup_left_outer h3 {
+
+  margin-bottom: 20px;
+
+}
+
+#fade-quote-carousel.carousel .carousel-indicators > li {
+
+  background-color: #061551 !important;
+
+  border: medium none;
+
+}
+
+.profile-circle {
+
+  margin: 0 auto;
+
+  text-align: center;
+
+}
+
+#fade-quote-carousel .profile-circle img {
+
+  border-radius: 100px;
+
+  height: 100px;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  width: 100px;
+
+}
+
+.signin_right_side {
+
+  border: 1px solid #cccccc;
+
+  padding: 10px 20px;
+
+  border-radius:4px;
+
+}
+
+.signin_box1 {
+
+  border: 1px solid #cccccc;
+
+  border-radius: 4px;
+
+  color: #ffffff;
+
+  padding: 4px 10px;
+
+  margin: 10px 0 20px;
+
+}
+
+.signin_left_side h5 {
+
+  font-size: 18px;
+
+}
+
+.student_check input, .teacher_outer input {
+
+  margin-right: 7px;
+
+}
+
+.student_check {
+
+  margin-right: 10px;
+
+}
+
+.check_outer {
+
+  margin-bottom: 15px;
+
+}
+
+.user_outer input, .password_outer input {
+
+  margin-bottom: 15px;
+
+  padding: 5px 10px;
+
+  width: 100%;
+
+}
+
+.signin_box1:hover {
+
+  background-color: #2ea8ff;
+
+  color: #ffffff !important;
+
+  cursor: pointer;
+
+}
+
+.signin_box1 a h5:hover {
+
+  color: #ffffff;
+
+}
+
+.signin_right_side .btn_outer101 {
+
+  margin-top: 15px;
+
+}
+
+.forgotten_outer {
+
+  text-align: right;
+
+}
+
+.modal-filed label {
+
+  width: 100%;
+
+}
+
+.modal_btn button {
+
+  margin-top: 15px;
+
+  padding: 7px 30px;
+
+}
+
+.modal-dialog {
+
+  width: 450px !important;
+
+}
+
+.modal-filed input {
+
+  padding: 5px 0;
+
+  width: 100%;
+
+}
+
+.modal-dialog {
+
+  margin: 150px auto;
+
+}
+
+.terms input {
+
+  margin-right: 10px;
+
+}
+
+.account_setting_outer {
+
+  padding-bottom: 40px;
+
+  padding-top: 60px;
+
+}
+
+.middle_content_outer  p {
+
+  font-size: 16px;
+
+  line-height: 28px;
+
+  text-align: justify;
+
+}
+
+.icon_outer img {
+
+  width: 80px;
+
+  margin-right: 55px;
+
+  margin-top:20px;
+
+}
+
+.modules_list {
+
+  padding-bottom: 250px;
+
+  padding-top: 50px;
+
+}
+
+.modules_list h5 {
+
+  font-size: 26px;
+
+  text-transform: capitalize;
+
+  text-align: center;
+
+}
+
+.student_middle_outer {
+
+  border: 1px solid #cccccc;
+
+  border-radius: 4px;
+
+  padding: 20px 30px;
+
+  text-align: center;
+
+}
+
+.student_middle_outer h3 {
+
+  font-size: 32px;
+
+  text-align: center;
+
+}
+
+.student_middle_outer p {
+
+  margin-bottom: 20px;
+
+  margin-top: 20px;
+
+  line-height: 28px;
+
+}
+
+.less_plan_outer {
+
+  float: left;
+
+  width: 50%;
+
+}
+
+.less_plan_outer {
+
+  float: left;
+
+  margin-right: 10px;
+
+  width: 50%;
+
+}
+
+.less_plan_videoouter button {
+
+  font-size: 22px;
+
+  padding: 10px 75px;
+
+}
+
+.less_plan_outer button {
+
+  font-size: 22px;
+
+  padding: 10px 95px;
+
+}
+
+.banner .navbar-default {
+
+  background-color: rgba(0, 0, 0, 0);
+
+  border-color: rgba(0, 0, 0, 0);
+
+  color: #ffffff;
+
+}
+
+.banner .navbar-default .navbar-nav > li > a {
+
+  color: #ffffff !important;
+
+  font-size: 18px;
+
+}
+
+.signin_outer92 {
+
+  margin-bottom: 20px;
+
+  margin-top: 100px;
+
+}
+
+.sign_up_outer {
+
+  margin-top: 90px;
+
+}
+
+.student_modules01, .teacher_modules01 {
+
+  margin-top: 100px;
+
+}
+
+.right_side_nav ul li a {
+ color: rgb(255, 255, 255) !important;
+}
+.right_side_nav ul li a:hover {
+ text-decoration: none !important;
+}
+.nav.navbar-nav.navbar-right li a:hover {
+ border-bottom: 2px solid #fff !important;
+ border-top: 2px solid #fff !important;
+}
+.nav.navbar-nav.navbar-right li a {
+ border-bottom: 2px solid rgba(0, 0, 0, 0);
+ border-top: 2px solid rgba(0, 0, 0, 0);
+}
+
+.logo_outer .navbar-brand {
+ height: auto !important;
+ padding: 10px 0 15px;
+}
+.modal-body input, .modal-body textarea {
+width: 100%;
+margin-top: 10px;
+padding: 5px;
+}
+.modal_btn.form-group input {
+padding: 12px;
+}
+.submodule-section {
+padding-top: 55px;
+padding-bottom: 230px;
+}
+
+.about_futuristic{
+  padding-bottom: 20px;
+}
+.error_msg {
+  background-color: red;
+  padding: 10px 20px 10px;  
+  color: #fff;
+  position:relative;
+  width: 100%; 
+  display: none;
+}
+.close {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  z-index: 999999;
+}
+.darkHeader{
+  position:fixed;
+  top:0;
+  width: 55.6%; 
+  z-index:999;
+} 
+.soical_media ul li a {
+    color: #ffffff;
+}
+/******Futuristic Skills***********/
+.Futuristic_Skills .navbar-default {
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
+.nav.navbar-nav.navbar-right li a {
+	color: #061551;
+	font-weight:bold;   
+}
+.membership_outer a {
+	font-size: 23px;
+	color: #000;
+}
+.membership_outer a:hover {
+	text-decoration:none;
+}
+.indiviual_membership .border96 {
+	padding-top: 65px;
+}
+.membership_outer {
+	margin-bottom: 70px;
+}
+.phone {
+	background-color: #ccc;
+	text-align: center;
+	padding: 20px;
+	border: 2px solid #061551;
+	margin-bottom: 60px;
+}
+.filed_outer {
+	margin-top: 50px;
+	margin-bottom: 60px;
+}
+.send_btn_outer {
+	float: right;
+}
+.send_btn_outer .btn.btn-default {
+	background-color: #061551;
+	color: #fff;
+	padding: 10px 50px;
+}
+.phone_outer {
+	margin-top: 50px;
+	margin-bottom: 80px;
+}
+.Futuristic_Skills {
+	margin-bottom: 60px;
+}
+.overlap_text h2 {
+	font-size: 36px;
+	color: #061551;
+}
+.overlap_text p {
+	font-size: 17px;
+}
+.gry{
+	background-color:rgba(217, 217, 217, 1);
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.modules_10 {
+	background-color: #061551;
+	text-align: center;
+	padding: 20px 0;
+	border-radius: 40px;
+	color: #fff;
+}
+.modules_10 h1 {
+	font-size: 200px;
+	font-weight: bold;
+}
+.modules_10 h3 {
+	font-size: 30px;
+}
+.border96{
+	border:2px solid #061551;
+	background-color: #fff;
+	text-align: center;
+	padding: 80px 0;
+
+}
+.text_gry {
+	background-color: #ccc;
+	border-left: 2px solid #061551;
+	border-bottom: 2px solid #061551;
+	border-right: 2px solid #061551;
+	padding: 12px;
+	text-align: center;
+	margin-bottom:50px;
+}
+.border96.custom6 {
+	padding: 89px 0;
+}
+.border96.custom_9 {
+	padding: 91px 0;
+} 
+.border96.custom_10 {
+	padding: 93px 0;
+}
+.border96.custom96 {
+	padding: 33px 0px;
+} 
+.border96.custom_96 {
+	padding: 81px 0;
+}
+.border96.custom_11 {
+	padding: 61px 0;
+}
+.border96.how01 {
+	padding: 0px;
+	margin-top:50px;
+}
+.center_banner img {
+	width: 100%;
+	margin-bottom: 50px;
+}
+.border96.how01 img {
+	width: 100%;
+}
+.text_gry h4 {
+	font-size: 24px;
+}
+.works {
+	margin-top: 50px;
+	margin-bottom:50px;
+}
+.works h1 {
+	font-size: 45px;
+	color:#061551;
+}
+.custom_padding{
+	padding:0px !important;
+}
+.bult_border {
+	border: 2px solid #061551;
+	padding: 50px 0px;
+	text-align:center;
+}
+.boys {
+	width: 50%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+.student_boder99 {
+	background-color: #f3f3f3;
+	text-align: center;
+	padding: 83px;
+	border: 2px solid;
+}
+.member .fa.fa-angle-double-right {
+	font-size: 140px;
+}
+.member {
+	border: 2px solid #061551;
+	text-align: center;
+	margin-top:50px;
+}
+.membership_option {
+	border: 2px solid #061551;
+	text-align: center;
+	background-color: #061551;
+
+}
+.membership_option h1 {
+	font-size: 27px;
+	text-align: center;
+	color:#fff;
+}

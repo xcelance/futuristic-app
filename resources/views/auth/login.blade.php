@@ -7,22 +7,22 @@
             <div class="col-md-6">
                 <div class="signin_left_side">
                     <div class="signin_box1">
-                    <a href="#"><h5>Parents! support your child's education with an individual subscription</h5></a>
+                    <a href="#"><h5>Parents! Support your child's education with an individual subscription</h5></a>
                     </div>
                     <div class="signin_box1">
                         <a href=""><h5>Top student profile</h5></a>
                     </div>
                     <div class="icon_outer">
-                        <img class="facebook01" src="images/facebook-icon.png">
-                        <img class="facebook01" src="images/Instagram_icon.png">
-                        <img class="facebook01" src="images/w_key.png">
-                        <img class="facebook01" src="images/square-linkedin-512.png">
+                        <a href="https://www.facebook.com/FuturisticSkills/"><img class="facebook01" src="public/images/facebook-icon.png"></a>
+                        <a href="https://www.instagram.com/futuristicskills/"><img class="facebook01" src="public/images/Instagram_icon.png"></a>
+                        <img class="facebook01" src="public/images/w_key.png">
+                        <a href="https://www.linkedin.com/company/18205820/"><img class="facebook01" src="public/images/square-linkedin-512.png"></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="signin_right_side">
-                    <h3>Sign into futuristic</h3>
+                    <h3>Sign in to Futuristic</h3>
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -56,7 +56,7 @@
                             @endif
                         </div>
                         <div class="terms">
-                            <input type="checkbox" name="terms" value="1" required><a href=""> I agree to the term and conditions</a> to enter Futuristic
+                            <input type="checkbox" name="terms" value="1" required><a href=""> I agree to the Terms and Conditions</a> to enter Futuristic
                         </div>
                         <div class="btn_outer101">
                             <button type="submit" class="btn btn-primary" name="login">Enter the platform</button>
@@ -88,7 +88,7 @@
                       </div>
                     </div>
                     <div class="forgotten_outer">                        
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal">Forgotten your password</a></div>
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal">Forgotten your password?</a></div>
                 </div>
             </div>
         </div>
