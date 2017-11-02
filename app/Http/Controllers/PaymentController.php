@@ -1,23 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Mail\EmailVerification;
+use Mail;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use URL;
 use Session;
 use Redirect;
 use Input;
 use App\User;
-use Cartalyst\Stripe\Laravel\Facades\Stripe;
-use Stripe\Error\Card;
+use View;
+use DB;
+
 
 class PaymentController extends Controller
 {
-
     public function __construct()
-    {
-        //parent::__construct();
+    {       
         $this->user = new User;
     }
     
@@ -38,61 +41,154 @@ class PaymentController extends Controller
      */
     public function postPaymentWithStripe(Request $request)
     {
+        $fullAmt = '15000';
+        $subAmt = '5000';
+
         $validator = Validator::make($request->all(), [
             'card_no' => 'required',
             'ccExpiryMonth' => 'required',
             'ccExpiryYear' => 'required',
-            'cvvNumber' => 'required',
-            'amount' => 'required',
+            'cvvNumber' => 'required',           
         ]);
         
         $input = $request->all();
-        if ($validator->passes()) {           
-            $input = array_except($input,array('_token'));    
 
-            $stripe = Stripe::make('sk_test_1RMWtXS2mCLemd0HgkHEMUGK');
-            dd($input);
+        if ($validator->passes()) {           
+            $stripe = array(
+              "secret_key"      => "sk_test_sQma5CJ4V2dVoe4hrOTwGbss",
+              "publishable_key" => "pk_test_4CaNA0zUUGVJAw3nlM2i2fyo"
+            );
+            \Stripe\Stripe::setApiKey("sk_test_sQma5CJ4V2dVoe4hrOTwGbss");
+
             try {
-                $token = $stripe->tokens()->create([
-                    'card' => [
-                        'number'    => $request->get('card_no'),
-                        'exp_month' => $request->get('ccExpiryMonth'),
-                        'exp_year'  => $request->get('ccExpiryYear'),
-                        'cvc'       => $request->get('cvvNumber'),
-                    ],
-                ]);
-                if (!isset($token['id'])) {
-                    \Session::put('error','The Stripe Token was not generated correctly');
-                    return redirect()->route('paywithstripe');
-                }
-                $charge = $stripe->charges()->create([
-                    'card' => $token['id'],
-                    'currency' => 'USD',
-                    'amount'   => $request->get('amount'),
-                    'description' => 'Add in wallet',
-                ]);
-                if($charge['status'] == 'succeeded') {
-                    /**
-                    * Write Here Your Database insert logic.
-                    */
-                    \Session::put('success','Money add successfully in wallet');
-                    return redirect()->route('paywithstripe');
-                } else {
-                    \Session::put('error','Money not add in wallet!!');
-                    return redirect()->route('paywithstripe');
-                }
-            } catch (Exception $e) {
-                \Session::put('error',$e->getMessage());
-                return redirect()->route('paywithstripe');
-            } catch(\Cartalyst\Stripe\Exception\CardErrorException $e) {
-                \Session::put('error',$e->getMessage());
-                return redirect()->route('paywithstripe');
-            } catch(\Cartalyst\Stripe\Exception\MissingParameterException $e) {
-                \Session::put('error',$e->getMessage());
+
+                $token  =   \Stripe\Token::create(array(
+                  "card" => array(
+                    "number" => $request->get('card_no'),
+                    "exp_month" => $request->get('ccExpiryMonth'),
+                    "exp_year" => $request->get('ccExpiryYear'),
+                    "cvc" => $request->get('cvvNumber')
+                  )
+                ));
+
+                $customer = \Stripe\Customer::create(array(
+                    'source'  => $token->id,
+                    'description' => 'testing...121'
+                    //'email' => $_POST['stripeEmail']           
+                ));
+
+
+                if($request->get('payment') == 'R'){
+
+                   $planc  = \Stripe\Plan::create(array(
+                      "amount" => 5000,
+                      "interval" => "month",
+                      "name" => $customer->id,
+                      "currency" => "usd",
+                      "id" => $customer->id)
+                    );
+
+                   $planlist = \Stripe\Plan::all(array("limit" => 3));
+
+                   $subs = \Stripe\Subscription::create(array(
+                      "customer" => $customer->id,
+                      "items" => array(
+                        array(
+                          "plan" => $customer->id,
+                        ),
+                      )
+                    ));
+             
+                    $userData = User::find($request->get('user_id')); 
+                    $createdDate = date('Y-m-d H:i:s', $subs->created);
+
+                   $lastInsertData = DB::table('payments')->insertGetId(
+                    ['user_id' => $userData->id, 'customer_id' => $subs->customer, 'subscription_id' => $subs->id, 'customer_email' =>'naveen.dogra@xcelance.com',  
+                    'transaction_id' => $subs->items->data[0]->id, 'amount' => '50', 'transaction_at' =>  $createdDate]
+                  );
+
+                }else{
+
+                    $charges = \Stripe\Charge::create(array(
+                        'customer' => $customer->id,
+                        'amount'   => $request->get('amount'),
+                        'currency' => 'usd'
+                    ));
+
+                    $userData = User::find($request->get('user_id')); 
+                    $createdDate = date('Y-m-d H:i:s', $charges->created);
+
+                    $lastInsertData = DB::table('payments')->insertGetId(
+                      ['user_id' => $userData->id, 'customer_id' => $charges->customer, 'customer_email' =>'naveen.dogra@xcelance.com',  
+                      'transaction_id' => $charges->balance_transaction, 'amount' =>  $charges->amount, 'transaction_at' =>  $createdDate]
+                    );
+                }           
+
+                DB::table('users')                    
+                    ->where('users.id', $userData->id)                
+                    ->update(['payment_status' => '1', 'payment_mode' => $request->get('payment')]);
+
+                $email = new EmailVerification(new User(['email_token' => $userData->email_token, 'firstname' => $userData->firstname]));
+                $sentStatus = Mail::to($userData->email)->send($email);
+
+                Session::flash('success', 'Signup successfully! Please check your mail for verification...');
+
+                return View::make('auth.thankyou');
+
+            } catch(Stripe_CardError $e) {
+                \Session::put('error','All fields are required!!');
                 return redirect()->route('paywithstripe');
             }
-        }
-        \Session::put('error','All fields are required!!');
-        return redirect()->route('paywithstripe');
-    }    
+        }        
+    } 
+
+
+    public function postPendingPaymentWithStripe(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'card_no' => 'required',
+            'ccExpiryMonth' => 'required',
+            'ccExpiryYear' => 'required',
+            'cvvNumber' => 'required',           
+        ]);
+        
+        $input = $request->all();
+
+        if ($validator->passes()) {           
+            $stripe = array(
+              "secret_key"      => "sk_test_sQma5CJ4V2dVoe4hrOTwGbss",
+              "publishable_key" => "pk_test_4CaNA0zUUGVJAw3nlM2i2fyo"
+            );
+            \Stripe\Stripe::setApiKey("sk_test_sQma5CJ4V2dVoe4hrOTwGbss");
+
+            try {
+
+                $charges = \Stripe\Charge::create(array(
+                    'customer' => $request->get('customer'),
+                    'amount'   => $request->get('amount'),
+                    'currency' => 'usd'
+                ));
+
+                $createdDate = date('Y-m-d H:i:s', $charges->created);
+
+                DB::table('users')                    
+                    ->where('users.id', Auth::user()->id)                
+                    ->update(['payment_status' => '2', 'payment_mode' => $request->get('payment')]);
+
+                DB::table('payments')                    
+                    ->where('payments.id', $request->get('pid'))
+                    ->update(['transaction_id' => $charges->balance_transaction, 'pending_amount' => 'Null', 'status' => 'done', 'transaction_at'=> $createdDate]);
+
+                Session::flash('success', 'Signup successfully! Please check your mail for verification...');
+
+                return View::make('profile');
+
+            } catch(Stripe_CardError $e) {
+                \Session::put('error','All fields are required!!');
+                return redirect()->route('profile');
+            }
+        }        
+    }
+
+
 }

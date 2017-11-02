@@ -51,11 +51,11 @@ class LoginController extends Controller
         ];
     }  
 
-    // protected function authenticated(Request $request, $user)
-    // {        
-    //     if($user->role === '2') {
-    //         return redirect()->intended('/admin/dashboard');
-    //     }
-    //     return redirect()->intended('/');
-    // }  
+    protected function authenticated(Request $request, $user)
+    {        
+        if($user->role === '2') {
+            return redirect()->intended('/admin/dashboard');
+        }
+        return redirect()->intended('/');
+    }  
 }
