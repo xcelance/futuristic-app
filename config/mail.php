@@ -17,7 +17,7 @@ return [
     */
 
 
-    'driver' => env('MAIL_DRIVER', 'sendmail'),
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'smtp.sendgrid.net'),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 25),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,10 +85,10 @@ return [
     |
     */
 
-    'username' => env('andsraj@gmail.com'),
+    'username' => env('andsraj'),
 
-    'password' => env('Andsraj@1983'),
-    'sendmail' => '/usr/sbin/sendmail -t -i',
+    'password' => env('andsraj@1983'),
+    'sendmail' => '/usr/sbin/sendmail -bs',
 
     /*
     |--------------------------------------------------------------------------

@@ -36,7 +36,7 @@
                                         <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
                                         <td>{{$teacher->email}}</td>
                                         <td>{{$teacher->payment_mode == 'R' ? 'Monthly' : ($teacher->payment_mode == 'O' ? 'Onetime' : 'Pending') }}</td>                                        
-                                        <td><a href="{{url('admin/teachers/?tid=')}}{{$teacher->id}}"><span><i class="fa fa-eye" aria-hidden="true"></i></span></a><a href="javascript:void(0);"  data-id="{{$teacher->id}}" class="deluser"><span class="edit delete"><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
+                                        <td><a href="{{url('admin/teachers/?tid=')}}{{$teacher->id}}"><span><i class="fa fa-eye" aria-hidden="true"></i></span></a><a href="{{url('admin/deluser/?uid=')}}{{$teacher->id}}" data-id="{{$teacher->id}}" class="deluser"><span class="edit delete"><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
                                     </tr>
                                 @endforeach                             
                             </tbody>

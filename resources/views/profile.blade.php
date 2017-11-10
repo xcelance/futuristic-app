@@ -15,9 +15,11 @@
 							<div class="row profile-border">
 								<div class="col-md-9 col-sm-9">
 									<div class="profile-left-side border">
-										<h4 class="profile01"><b>Name: </b><span class="custom_p">{{$userData->firstname}} {{$userData->lastname}}</span> </h4>
-										<h4 class="profile01"><b>Email:</b><span class="custom_p"> {{$userData->email}}</span> </h4>
-										<h4 class="profile01"><b>User Type:</b> <span class="custom_p">{{$userData->role == '0'?'Student': ($userData->role == '1'?'Teacher': 'Admin')}}</span></h4>
+                                        @if(isset($userData))
+    										<h4 class="profile01"><b>Name: </b><span class="custom_p">{{$userData->firstname}} {{$userData->lastname}}</span> </h4>
+    										<h4 class="profile01"><b>Email:</b><span class="custom_p"> {{$userData->email}}</span> </h4>
+    										<h4 class="profile01"><b>User Type:</b> <span class="custom_p">{{$userData->role == '0'?'Student': ($userData->role == '1'?'Teacher': 'Admin')}}</span></h4>
+                                        @endif
 
                                         @if(Auth::user()->role == '0')
                                             <h4 class="profile01"><b>School Name: </b><span class="custom_p"> {{$userData->school_name}}</span> </h4>
@@ -333,6 +335,8 @@
 							</div>
 						</div>
 
+                        @if(Auth::user()->role == '0' && count($paymentData)>0)
+
 						<!-- Modal -->
 						<div id="myModal" class="modal fade" role="dialog">
 						  <div class="modal-dialog">
@@ -430,6 +434,7 @@
 						    </div>
 						  </div>
 						</div>
+                @endif
 	
 				</div>
 			</div>

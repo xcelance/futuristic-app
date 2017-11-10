@@ -1,13 +1,42 @@
 body{
 }
 /********custom css****************/
-
+.sign-up-form-outer h2 {
+	margin-bottom: 20px;
+}
+.custom_logo {
+	width: 120px;
+}
+.terms_conditions {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 30px 40px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.modules_list.modules01 {
+	padding-bottom: 70px;
+	padding-top: 50px;
+}
+.video_sec #wistia-ym4azuj2af-1 {
+	width: 100% !important;
+}
+.video_sec #wistia-h50pp5d0i0-1 {
+	width: 100% !important;
+}
 .sign-up-form-outer {
 	margin-top: 70px;
 	margin-bottom: 200px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	padding: 10px 30px 40px;
+}
+.singup_left_outer p {
+  margin-bottom: 26px;
+}
+.payment001{
+	padding-bottom: 40px;
+    padding-top: 50px;
 }
 .border {
 	border: 1px solid #ccc;
@@ -170,16 +199,12 @@ margin-right:15px;
 
 }
 
-.banner{
-
- background-image: url("../images/banner.jpg");
-
- height:520px;
-
- width:100%;
-
-
-
+.banner {
+	background-image: url("../images/banner.jpg");
+	height: 520px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .banner{
@@ -280,13 +305,13 @@ margin-right:15px;
 
   padding: 7px 5px;
 
-  width: 57%;
+  width: 48%;
 
 }
 
 .custom_password {
 
-  width: 41%;
+  width: 50%;
 
 }
 
@@ -489,6 +514,9 @@ margin-right:15px;
   padding: 10px 20px;
 
 }
+.border96.school, .border96.individual {
+	padding: 60px 0;
+}
 
 .singup_left_outer h3 {
 
@@ -513,17 +541,10 @@ margin-right:15px;
 }
 
 #fade-quote-carousel .profile-circle img {
-
-  border-radius: 100px;
-
-  height: 100px;
-
-  margin: 0 auto;
-
-  text-align: center;
-
-  width: 100px;
-
+	border-radius: 2px;
+	margin: 0 auto;
+	text-align: center;
+	width: 60%;
 }
 
 .signin_right_side {
@@ -537,19 +558,12 @@ margin-right:15px;
 }
 
 .signin_box1 {
-
-  border: 1px solid #cccccc;
-
-  border-radius: 4px;
-
-  color: #ffffff;
-
-  padding: 4px 10px;
-
-  margin: 10px 0 20px;
-
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	color: #ffffff;
+	padding: 4px 10px;
+	margin: 20px 0 20px;
 }
-
 .signin_left_side h5 {
 
   font-size: 18px;
@@ -671,13 +685,14 @@ margin-right:15px;
 }
 
 .icon_outer img {
+	width: 50px;
+	margin-right: 28px;
+	margin-bottom: 30px;
+}
 
-  width: 80px;
-
-  margin-right: 55px;
-
-  margin-top:20px;
-
+.fa.fa-envelope.social_gmail01 {
+	font-size: 55px;
+	margin-right: 30px;
 }
 
 .modules_list {
@@ -699,15 +714,11 @@ margin-right:15px;
 }
 
 .student_middle_outer {
-
-  border: 1px solid #cccccc;
-
-  border-radius: 4px;
-
-  padding: 20px 30px;
-
-  text-align: center;
-
+border: 1px solid #cccccc;
+border-radius: 4px;
+padding: 20px 30px;
+text-align: center;
+margin-bottom: 40px;
 }
 
 .student_middle_outer h3 {
@@ -736,7 +747,7 @@ margin-right:15px;
 
 }
 
-.less_plan_outer {
+/*.less_plan_outer {
 
   float: left;
 
@@ -744,6 +755,15 @@ margin-right:15px;
 
   width: 50%;
 
+}
+*/
+
+.less_plan_outer {
+float: left;
+margin-right: 10px;
+width: 100%;
+margin-top: 10px;
+margin-bottom: 20px;
 }
 
 .less_plan_videoouter button {
@@ -782,16 +802,25 @@ margin-right:15px;
 
 .signin_outer92 {
 
-  margin-bottom: 20px;
+  margin-bottom: 80px;
 
   margin-top: 100px;
 
 }
 
+.less_plan_outer a.btn.btn-primary {
+    font-size: 22px;
+    padding: 10px 90px;
+}
+
+.testimonialimg {
+  padding-right: 5px;
+  width: 20px;
+}
+
 .sign_up_outer {
-
   margin-top: 90px;
-
+  margin-bottom:50px;
 }
 
 .student_modules01, .teacher_modules01 {
@@ -874,11 +903,10 @@ padding-bottom: 230px;
 .membership_outer a:hover {
 	text-decoration:none;
 }
-.indiviual_membership .border96 {
-	padding-top: 65px;
-}
+
 .membership_outer {
 	margin-bottom: 70px;
+	padding-top: 60px;
 }
 .phone {
 	background-color: #ccc;
@@ -908,7 +936,11 @@ padding-bottom: 230px;
 }
 .overlap_text h2 {
 	font-size: 36px;
-	color: #061551;
+
+}
+.overlap_text {
+	color: #fff;
+	margin-top: 40px;
 }
 .overlap_text p {
 	font-size: 17px;
@@ -921,9 +953,23 @@ padding-bottom: 230px;
 .modules_10 {
 	background-color: #061551;
 	text-align: center;
-	padding: 20px 0;
+	padding: 23px 0;
 	border-radius: 40px;
 	color: #fff;
+}
+.modules_10.modules_11 {
+	padding: 50px;
+}
+.border_how{
+	border: 2px solid #061551;
+	background-color: #fff;
+	text-align: center;
+}
+.border_how.how01 img {
+	width: 100%;
+}
+.banner.Futuristic_Skills.inner-page.contact {
+	height: 350px;
 }
 .modules_10 h1 {
 	font-size: 200px;
@@ -949,26 +995,25 @@ padding-bottom: 230px;
 	margin-bottom:50px;
 }
 .border96.custom6 {
-	padding: 89px 0;
+	padding: 80px 0;
 }
 .border96.custom_9 {
 	padding: 91px 0;
 } 
 .border96.custom_10 {
-	padding: 93px 0;
+	padding: 91px 0;
 }
 .border96.custom96 {
-	padding: 33px 0px;
-} 
+	padding: 91px 0px;
+}
 .border96.custom_96 {
 	padding: 81px 0;
 }
 .border96.custom_11 {
-	padding: 61px 0;
+	padding: 91px 0;
 }
-.border96.how01 {
-	padding: 0px;
-	margin-top:50px;
+.border96.custom_96 {
+	padding: 80px 0;
 }
 .center_banner img {
 	width: 100%;
@@ -1026,4 +1071,227 @@ padding-bottom: 230px;
 	font-size: 27px;
 	text-align: center;
 	color:#fff;
+}
+.banner.Futuristic_Skills.inner-page {
+	height: 300px;
+}
+.Futuristic_Skills.inner-page {
+	margin-bottom: 0px !important;
+}
+.custom7 {
+	padding: 91px 0;
+}
+.modules_11 h1 {
+	text-align: center;
+}
+
+.yearsinschool2  {
+  margin-right: 10px;
+  width: 48%;
+}
+
+/**************custom responsive*******************/
+
+
+@media only screen and (max-width: 1199px){
+	.text_gry h4 {
+	font-size: 22px;
+}
+.student_boder99 {
+	padding: 67px;
+}
+.first_outer01 .fname {
+	margin-right: 10px;
+	width: 100%;
+	margin-bottom: 25px;
+}
+.first_outer01 .lname {
+	width: 100%;
+}
+.custom_select {
+	width: 100%;
+	margin-bottom: 25px;
+}
+.custom_password {
+	width: 100%;
+}
+.student_boder99 {
+  padding: 83px 0 !important;
+}
+	
+}
+@media only screen and (max-width: 991px){
+	.border96.custom_96 {
+	padding: 107px 0;
+}
+
+	
+}
+@media only screen and (max-width: 767px){
+	.modules_10 {
+	margin-bottom: 50px;
+}
+.singup_right_outer {
+	margin-top: 20px;
+}
+.singup_right_outer {
+	margin-top: 20px;
+}
+.custom_sign a {
+	margin-right: 10px;
+	padding: 10px 20px;
+
+}
+.custom_login a {
+	padding: 10px 20px !important;
+	margin-right: 0 !important;
+
+}
+.overlap_content h1 {
+	font-size: 45px;
+}
+.member .fa.fa-angle-double-right {
+	font-size: 100px;
+}
+.membership_option h1 {
+	font-size: 22px;
+}
+.phone {
+	margin-bottom: 20px;
+}
+.phone_outer {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.contact_section h1 {
+	font-size: 30px;
+
+}
+.terms {
+	display: inline-block;
+}
+.sign_up_outer {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.bult_border, .student_boder99 {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.row.students h1 {
+	padding-left: 15px;
+}
+.text_gry {
+	margin-bottom: 20px;
+}
+
+.yearsinschool2 {
+  margin-right: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+}
+@media only screen and (max-width: 480px){
+	.logo_outer a {
+	width: 100% !important;
+	display: block !important;
+}
+.right_side_nav {
+	text-align: left !important;
+}
+.right_side_nav ul {
+	padding-left: 0;
+	padding-bottom: 10px;
+}
+.right_side_nav ul li {
+	display: inline-block;
+	margin-top: 0 !important;
+}
+.custom_login a {
+	padding: 10px 10px !important;
+	margin-right: 0 !important;
+}
+.overlap_content h1 {
+	font-size: 28px;
+}
+.overlap_content p {
+	font-size: 16px;
+	line-height: 22px;
+}
+.member .fa.fa-angle-double-right {
+	font-size: 70px;
+}
+.membership_option h1 {
+	font-size: 18px;
+}
+.member {
+	margin-top: 10px !important;
+}
+.membership_outer a {
+	font-size: 18px;
+}
+.membership_option {
+	margin-bottom: 20px;
+}
+.phone_outer {
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.contact_section h1 {
+	font-size: 20px;
+
+}
+.overlap_text h2 {
+	font-size: 24px;
+}
+.overlap_text {
+	margin-top: 10px;
+}
+.phone h3 {
+	font-size: 18px !important;
+}
+.filed_outer {
+	margin-top: 20px;
+}
+.center_banner img {
+	margin-bottom: 0px;
+}
+.sign_up_outer, .signin_outer92 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.custom_sign a {
+	margin-right: 10px;
+	padding: 10px 7px;
+}
+.icon_outer img {
+	margin-right: 10px;
+
+}
+ .fa.fa-envelope.social_gmail01 {
+	margin-right: 10px;
+
+}
+
+.works h1 {
+	font-size: 18px;
+
+}
+.works {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.modules_10 h1 {
+	font-size: 150px;
+}
+.gry {
+	padding-top: 30px;
+	padding-bottom: 0px;
+}
+.membership_outer {
+	margin-bottom: 10px;
+	padding-top: 30px;
+}
+
 }

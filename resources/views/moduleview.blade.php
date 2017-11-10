@@ -12,15 +12,15 @@
                 <div class="student_middle_outer">
                     <h3>About {{$moduleName}}</h3>
                     @if(Auth::user()->role == '1')
-                        <div class="teacher_btn_planouter">
-                            <div class="less_plan_outer">
-                                <button type="button" class="btn btn-primary">Lesson plan text</button>
-                            </div>
-                            <div class="less_plan_videoouter">
-                                <button type="button" class="btn btn-primary">Lesson plan video</button>
-                            </div>              
-                        </div>  
-                    @endif
+						<div class="teacher_btn_planouter">
+							<div class="less_plan_outer">                                
+								<a href="public/lessons/{{$lesson_text}}" download="Lesson for {{$moduleName}}" class="btn btn-primary">Lesson Plan</a>
+							</div>
+							<!-- <div class="less_plan_videoouter">
+								<button type="button" class="btn btn-primary">Lesson Plan</button>
+							</div>  -->             
+						</div>  
+					@endif
                     @foreach($quizlist as $quiz)                        
 						  {!!html_entity_decode($quiz->content)!!}
                           <input type="hidden" name="smid" id="smid" value="{{$quiz->id}}">
@@ -37,15 +37,15 @@
 							    @if(isset($links))
 									@foreach($links as  $link=>$url)
 										<div class="signin_box1">
-                                            @if($link == 'Discussion Questions')
+                        @if($link == 'Discussion Questions')
 										        <a href="{{$url}}" download="Discussion Questions"><h5>{{$link}}</h5></a>
-                                            @else
-                                                 @if ($data = in_array($link, $response))
-                                                    <a href="javascript:void(0);" onclick="return showmsg();"><h5>{{$link}}</h5></a>
-                                                 @else
-                                                    <a href="{{$url}}"><h5>{{$link}}</h5></a>
-                                                 @endif
-                                            @endif
+                          @else
+                               @if ($data = in_array($link, $response))
+                                  <a href="javascript:void(0);" onclick="return showmsg();"><h5>{{$link}}</h5></a>
+                               @else
+                                  <a href="{{$url}}"><h5>{{$link}}</h5></a>
+                               @endif
+                          @endif
 										</div>
     								@endforeach
     							@endif

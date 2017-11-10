@@ -3420,17 +3420,17 @@
     },
     {
         "name": "paragonie/random_compat",
-        "version": "v2.0.11",
-        "version_normalized": "2.0.11.0",
+        "version": "v2.0.10",
+        "version_normalized": "2.0.10.0",
         "source": {
             "type": "git",
             "url": "https://github.com/paragonie/random_compat.git",
-            "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+            "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
-            "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+            "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
             "shasum": ""
         },
         "require": {
@@ -3442,7 +3442,7 @@
         "suggest": {
             "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
         },
-        "time": "2017-09-27T21:40:39+00:00",
+        "time": "2017-03-13T16:27:32+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -3469,42 +3469,32 @@
         ]
     },
     {
-        "name": "stripe/stripe-php",
-        "version": "v3.23.0",
-        "version_normalized": "3.23.0.0",
+        "name": "mailchimp/mailchimp",
+        "version": "2.0.6",
+        "version_normalized": "2.0.6.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/stripe/stripe-php.git",
-            "reference": "c702a2ed92f4b39603c4a796492d87bcc16c819c"
+            "url": "https://bitbucket.org/mailchimp/mailchimp-api-php.git",
+            "reference": "7ac99b5ac746d5875c5c350ad7e3b83674c83ec1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c702a2ed92f4b39603c4a796492d87bcc16c819c",
-            "reference": "c702a2ed92f4b39603c4a796492d87bcc16c819c",
+            "url": "https://bitbucket.org/mailchimp/mailchimp-api-php/get/7ac99b5ac746d5875c5c350ad7e3b83674c83ec1.zip",
+            "reference": "7ac99b5ac746d5875c5c350ad7e3b83674c83ec1",
             "shasum": ""
         },
         "require": {
-            "ext-curl": "*",
-            "ext-json": "*",
-            "ext-mbstring": "*",
-            "php": ">=5.3.3"
+            "php": ">=5.2.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.0",
-            "satooshi/php-coveralls": "~0.6.1",
-            "squizlabs/php_codesniffer": "~2.0"
+            "apigen/apigen": "dev-master"
         },
-        "time": "2016-09-15T18:16:59+00:00",
+        "time": "2014-10-30T20:38:12+00:00",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "Stripe\\": "lib/"
+            "psr-0": {
+                "Mailchimp": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -3513,16 +3503,198 @@
         ],
         "authors": [
             {
-                "name": "Stripe and contributors",
-                "homepage": "https://github.com/stripe/stripe-php/contributors"
+                "name": "MailChimp Devs",
+                "email": "api@mailchimp.com",
+                "homepage": "http://mailchimp.com",
+                "role": "Developer"
             }
         ],
-        "description": "Stripe PHP Library",
-        "homepage": "https://stripe.com/",
+        "description": "API client library for the MailChimp bulk email as a service platform",
+        "homepage": "https://bitbucket.org/mailchimp/mailchimp-api-php",
         "keywords": [
             "api",
-            "payment processing",
-            "stripe"
+            "email"
+        ]
+    },
+    {
+        "name": "skovmand/mailchimp-laravel",
+        "version": "1.0.8",
+        "version_normalized": "1.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/skovmand/mailchimp-laravel.git",
+            "reference": "f3ddf9cea612536e5e9d9ced7cb990a6b2c2e725"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/skovmand/mailchimp-laravel/zipball/f3ddf9cea612536e5e9d9ced7cb990a6b2c2e725",
+            "reference": "f3ddf9cea612536e5e9d9ced7cb990a6b2c2e725",
+            "shasum": ""
+        },
+        "require": {
+            "laravel/framework": "5.0 - 5.5",
+            "mailchimp/mailchimp": "~2.0"
+        },
+        "time": "2017-08-31T10:58:23+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Skovmand\\Mailchimp\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "A minimal service provider to set up and use the Mailchimp Api v2 PHP library in Laravel 5.*"
+    },
+    {
+        "name": "sendgrid/php-http-client",
+        "version": "3.8.0",
+        "version_normalized": "3.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sendgrid/php-http-client.git",
+            "reference": "929018c62b7fcd99b3b356216ae75fff4d47b5a1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/929018c62b7fcd99b3b356216ae75fff4d47b5a1",
+            "reference": "929018c62b7fcd99b3b356216ae75fff4d47b5a1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.4",
+            "squizlabs/php_codesniffer": "~2.0"
+        },
+        "time": "2017-09-13T16:52:38+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SendGrid\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matt Bernier",
+                "email": "dx@sendgrid.com"
+            },
+            {
+                "name": "Elmer Thomas",
+                "email": "elmer@thinkingserious.com"
+            }
+        ],
+        "description": "HTTP REST client, simplified for PHP",
+        "homepage": "http://github.com/sendgrid/php-http-client",
+        "keywords": [
+            "api",
+            "fluent",
+            "http",
+            "rest",
+            "sendgrid"
+        ]
+    },
+    {
+        "name": "sendgrid/sendgrid",
+        "version": "6.0.0",
+        "version_normalized": "6.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sendgrid/sendgrid-php.git",
+            "reference": "8db454e4b5674b545c207a162b64202b0d63259b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/8db454e4b5674b545c207a162b64202b0d63259b",
+            "reference": "8db454e4b5674b545c207a162b64202b0d63259b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6",
+            "sendgrid/php-http-client": "~3.7"
+        },
+        "replace": {
+            "sendgrid/sendgrid-php": "*"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*",
+            "squizlabs/php_codesniffer": "2.*"
+        },
+        "time": "2017-07-01T04:30:16+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/SendGrid.php",
+                "lib/helpers/mail/Mail.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "This library allows you to quickly and easily send emails through SendGrid using PHP.",
+        "homepage": "http://github.com/sendgrid/sendgrid-php",
+        "keywords": [
+            "email",
+            "grid",
+            "send",
+            "sendgrid"
+        ]
+    },
+    {
+        "name": "clarification/sendgrid-laravel-driver",
+        "version": "1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/clarification/sendgrid-laravel-driver.git",
+            "reference": "fb8b3705ac7a69a8bacd3d1f42dce246038e2b36"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/clarification/sendgrid-laravel-driver/zipball/fb8b3705ac7a69a8bacd3d1f42dce246038e2b36",
+            "reference": "fb8b3705ac7a69a8bacd3d1f42dce246038e2b36",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/container": ">=5.0",
+            "swiftmailer/swiftmailer": "~5.1||~6.0"
+        },
+        "time": "2017-10-13T18:33:34+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Clarification\\MailDrivers\\Sendgrid\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Robin Lidbetter",
+                "role": "Developer"
+            }
+        ],
+        "description": "Sendgrid mail driver for Laravel",
+        "homepage": "http://clarification.io",
+        "keywords": [
+            "driver",
+            "laravel",
+            "mail",
+            "sendgrid"
         ]
     }
 ]

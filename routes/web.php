@@ -12,6 +12,24 @@
 */
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Mail\EmailVerification;
+
+Route::get('testEmail', function ()
+{
+    $from = new SendGrid\Email("Example User", "niraj.pathak@xcelance.com");
+    $subject = "Sending with SendGrid is Fun4434";
+    $to = new SendGrid\Email("Example User", "niraj.pathak@xcelance.com");
+    $content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+    $mail = new SendGrid\Mail($from, $subject, $to, $content);
+    $apiKey = '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';
+    $sg = new \SendGrid($apiKey);
+    $response = $sg->client->mail()->send()->post($mail);
+
+    echo '<pre>'.$response->statusCode();
+    print_r($response->headers());
+    echo $response->body();
+
+});
 
 //Clear Cache facade value:
 Route::get('/clear-cache', function() {
@@ -52,10 +70,16 @@ Route::get('contact-us', function () {
 Route::get('membership', function () {
     return view('membership');
 });
-Route::get('futuristics', function () {
-    return view('futuristicwebapp');
+Route::get('services', function () {
+    return view('services');
 });
 
+Route::get('terms-and-conditions', function () {
+    return view('terms');
+});
+Route::get('privacy-policy', function () {
+    return view('privacy');
+});
 
 Route::group(['middleware' => 'guest'], function () {
 
@@ -67,8 +91,11 @@ Route::group(['middleware' => 'guest'], function () {
         return view('auth/login');
     });
 
-    Route::get('signupfree{stype?}', 'UserController@userSignupFreeView');
+    Route::get('signupfree{stype?}', 'UserController@userSignupFreeView');    
     Route::post('signupfree', 'UserController@userSignupFree');
+    Route::get('signup-teacher{stype?}', 'UserController@teacherSignupFreeView');
+    Route::post('signup-teacher', 'UserController@teacherSignupFree');
+    Route::post('signupfree2', 'UserController@userSignupFree2');
 
     Route::post('login', 'UserController@userLogin');
     Route::get('register/verify/{token}', 'UserController@verify'); 
@@ -115,6 +142,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function()
 	Route::post('createnew','AdminController@createModule');
 	Route::post('editmodule', 'AdminController@editModule');
 	Route::get('delmodule{mid?}', 'AdminController@deleteModule');
+    Route::get('deluser{uid?}', 'AdminController@deleteUser');
 	
 	Route::get('submodule{mid?}', 'AdminController@subModuleList');	
 	Route::post('createnewsub','AdminController@createSubModule');

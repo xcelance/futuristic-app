@@ -41,8 +41,8 @@ class PaymentController extends Controller
      */
     public function postPaymentWithStripe(Request $request)
     {
-        $fullAmt = '15000';
-        $subAmt = '5000';
+        $fullAmt = '8500';
+        $subAmt = '2833.33';
 
         $validator = Validator::make($request->all(), [
             'card_no' => 'required',
@@ -81,7 +81,7 @@ class PaymentController extends Controller
                 if($request->get('payment') == 'R'){
 
                    $planc  = \Stripe\Plan::create(array(
-                      "amount" => 5000,
+                      "amount" => 2833.33,
                       "interval" => "month",
                       "name" => $customer->id,
                       "currency" => "usd",

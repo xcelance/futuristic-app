@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
- <section class="Futuristic_Skills">
+ <section class="banner Futuristic_Skills inner-page contact">
 	<div class="container">
 	<div class="custom_nav"><nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -19,17 +19,17 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
    
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://futuristicskillscommunity.org/futuristics">Futuristic Skills</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="http://futuristicskillscommunity.org/membership">Membership</a></li>
+        <li><a href="{{url('/')}}">Futuristic Skills</a></li>
+        <li><a href="{{url('services')}}">Services</a></li>
+        <li><a href="{{url('membership')}}">Membership</a></li>
 <!--         <li><a href="#">Impact</a></li>
         <li><a href="#">Blog</a></li> -->
-        <li><a href="http://futuristicskillscommunity.org/contact-us">Contact</a></li>
+        <li><a href="{{url('contact-us')}}">Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav></div>
-		<div class="overlap_text">
+		<div class="overlap_text contact-us">
 			<h2>CONTACT</h2>
 			<p>Please send us a message.</p>
 			<p>We will get in touch very shortly.</p>
@@ -51,46 +51,23 @@
 			<div class="col-md-8 col-sm-8">
 				<div class="phone">
 					<h4>EMAIL</h4>
-					<h3>hello@futuristicskills.com</h3>
+					<a href="mailto:hello@futuristicskills.com"><h3>hello@futuristicskills.com</h3></a>
 				</div>
 			</div>
 		</div>
 		<div class="center_banner">
 			<img src="public/images/contact_center.jpg">
 			</div>
-			<div class="contact_section">
-				<h1>Online Message Service</h1>
-			</div>
-			<div class="filed_outer">
-				 <form>
-	<div class="form-group">
-    <input type="name" class="form-control" id="name" placeholder="Name">
-  </div>
-  <div class="form-group">
-    <input type="email" class="form-control" id="email" placeholder="email">
-  </div>
-   <div class="form-group">
-    <input type="number" class="form-control" id="phone" placeholder="Phone">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="sub" placeholder="Subject">
-  </div>
-  <div class="form-group">
-   <textarea type="text" class="form-control" id="msg" placeholder="Message"></textarea>
-  </div>
-  <div class="send_btn_outer">  
-  <button type="submit" class="btn btn-default">Send</button>
-  </div>
-</form> 
-			</div>
 			<div class="row">
-				<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-					<div class="member">
-						<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-					</div>
-					<div class="membership_option">
-					<h1>HAVE YOU SEEN OUR BLOG?</h1>
-					</div>
+				<div class="col-md-6 col-sm-12 col-md-offset-3 ">
+					<a href="http://www.futuristicskills.com/futuristicblog">
+						<div class="member">
+							<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+						</div>
+						<div class="membership_option">
+							<h1>HAVE YOU SEEN OUR BLOG?</h1>
+						</div>
+					</a>
 				</div>
 			</div>
 	</div>

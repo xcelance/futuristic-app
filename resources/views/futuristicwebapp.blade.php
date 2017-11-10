@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<section class="Futuristic_Skills">
+<section class="banner Futuristic_Skills inner-page">
 	<div class="container">
 	<div class="custom_nav"><nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -19,12 +19,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
    
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://futuristicskillscommunity.org/futuristics">Futuristic Skills</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="http://futuristicskillscommunity.org/membership">Membership</a></li>
+        <li><a href="{{url('/')}}">Futuristic Skills</a></li>
+        <li><a href="{{url('services')}}">Services</a></li>
+        <li><a href="{{url('membership')}}">Membership</a></li>
 <!--         <li><a href="#">Impact</a></li>
         <li><a href="#">Blog</a></li> -->
-        <li><a href="http://futuristicskillscommunity.org/contact-us">Contact</a></li>
+        <li><a href="{{url('contact-us')}}">Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -92,11 +92,11 @@
 				
 			</div>
 			<div class="col-md-4 col-sm-4">
-				<div class="border96 custom6">
+				<div class="border96 custom_7">
 				<img src="public/images/07.png">  
 				</div>
 				<div class="text_gry">
-					<h4>Modern Literacy</h4>
+					<h4>Modern Literacy</h4>        
 					</div>
 				
 			</div>

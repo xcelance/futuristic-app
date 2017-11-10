@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'futuristicrds.clroton3mmsn.ap-southeast-1.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'x252016w_futuristic'),
-            'username' => env('DB_USERNAME', 'x252016w_futuris'),
-            'password' => env('DB_PASSWORD', 'hPXwvg!}te9K'),
+            'database' => env('DB_DATABASE', 'futuristicdb'),
+            'username' => env('DB_USERNAME', 'futuristicdb'),
+            'password' => env('DB_PASSWORD', 'kjuv65f21s'),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => 'fs_',

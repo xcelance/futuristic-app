@@ -150,6 +150,27 @@ class AdminController extends Controller
 
          return redirect('admin/modules');
     }
+
+    ///////////////////////// DELETE USER ///////////////////////////////
+    public function deleteUser(){
+
+        DB::enableQueryLog();
+        $data  = Request::all();
+        $user = \Auth::user();
+        $role = Auth::user()->role;
+                
+        if(count($data) > 0){
+            if(array_key_exists('uid', $data) && !empty($data['uid'])){
+                      
+                $status = DB::table('users')->where('id', '=', $data['uid'])                    
+                        ->delete();                
+
+                if($status > 0){
+                     return redirect()->back();
+                }
+            }
+        }
+    }
 	
 	public function editSubModule() {			
 		$data = Request::all();   
@@ -197,11 +218,16 @@ class AdminController extends Controller
                          ->select(DB::raw('fs_users.*, (SELECT count(fs_reviews.user_id) FROM fs_reviews WHERE fs_users.id = fs_reviews.user_id) AS video_reviews'))
                         ->where('users.id','=', $sid)
                         ->first();
+
+            $videoReviewed  =  DB::table('modules')  
+                            ->select(DB::raw('fs_modules.id, fs_modules.module_name, (SELECT count(`fs_reviews`.user_id) FROM `fs_reviews` WHERE `fs_modules`.id = `fs_reviews`.module_id AND `fs_reviews`.`user_id`= '.$sid.') AS video_reviews'))                            
+                            ->get()->toArray();
+
             $responseData =  DB::table('quiz_response')                            
                             ->where('quiz_response.user_id','=', $sid)                            
                             ->get()->toArray();  
 
-            return View::make('adminStudents', compact('studentData', 'sid', 'responseData'));
+            return View::make('adminStudents', compact('studentData', 'sid', 'responseData', 'videoReviewed'));
         }else{		
             $studentList = DB::table('users')
                          ->select(DB::raw('fs_users.*, (SELECT count(fs_reviews.user_id) FROM fs_reviews WHERE fs_users.id = fs_reviews.user_id) AS video_reviews'))
@@ -345,158 +371,6 @@ class AdminController extends Controller
         //print_r($userList);        
     }
 
-    public function videoListBySize(){
-        $data  = Request::all();
-
-        $videoData = "";        
-        DB::enableQueryLog();
-        $name = \Auth::user()->name;
-        $user = Auth::user();
-        $role = Auth::user()->role;        
-        $startLimit = $data['limit'];
-
-        if(array_key_exists('method', $data) && !empty($data['method']) && $data['method'] == 'allvideos'){
-
-            $videoList = DB::table('videos')                    
-                        ->orderBy('id', 'ASC')
-                        ->offset($startLimit)
-                        ->take(4) 
-                        ->get();
-            //print_r(DB::getQueryLog());
-                    
-            foreach($videoList as $video){
-                $createdDate = Carbon\Carbon::parse($video->uploadDate)->format('d/m/Y');
-                $imgThumbPath = $this->app_url.'/storage/app/public/images/thumbs/'.$video->thumbnail;
-
-                $videoData .= "<div class=\"col-md-3 col-sm-6 videocls\"><div class=\"video-first-outer\"><div class=\"video-images\"><a href=\"/vid=$video->id\"><img src=\"$imgThumbPath\"></a></div><div class=\"video-title\"><span class=\"title\">$video->videoTitle</span><a href=\"/deletevideo?vid=$video->id\"><span class=\"edit delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></span></a></div><div class=\"date-title\"><span class=\"date-title\">created: $createdDate</span></div></div></div>";
-            }
-        }elseif(array_key_exists('method', $data) && !empty($data['method']) && $data['method'] == 'uservideos'){
-
-            $videoList = DB::table('users')
-                            ->join('videos', 'users.id','=', 'videos.user_id')
-                            ->where('videos.user_id','=', $data['uid']) 
-                            ->orderBy('videos.id', 'ASC') 
-                            ->offset($startLimit)
-                            ->take(4)               
-                            ->get();
-
-            //print_r(DB::getQueryLog()); 
-            
-            foreach($videoList as $video){
-                $createdDate = Carbon\Carbon::parse($video->uploadDate)->format('d/m/Y');
-                $imgThumbPath = $this->app_url.'/storage/app/public/images/thumbs/'.$video->thumbnail;
-
-                $videoData .= "<div class=\"col-md-3 col-sm-6 videocls video_$video->id\"><div class=\"video-first-outer\"><div class=\"video-images\"><a href=\"/admin/video?vid=$video->id\"><img src=\"$imgThumbPath\"></a></div><div class=\"video-title\"><span class=\"title\">$video->videoTitle</span><span class=\"edit delete delvideo\" data-id=\"$video->id\" data-uid=\"$video->user_id\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></span></div><div class=\"date-title\"><span class=\"date-title\">created: $createdDate</span></div></div></div>";
-            }
-        }
-
-        echo $videoData;
-        //print_r($userList);        
-    }
-
-    public function audioListBySize(){
-        $data  = Request::all();
-
-        $audioData = "";        
-        DB::enableQueryLog();
-        $name = \Auth::user()->name;
-        $user = Auth::user();
-        $role = Auth::user()->role;        
-        $startLimit = $data['limit'];
-
-        if(array_key_exists('method', $data) && !empty($data['method']) && $data['method'] == 'allaudios'){
-
-            $audioList = DB::table('audios')                    
-                        ->orderBy('id', 'ASC')
-                        ->offset($startLimit)
-                        ->take(1)
-                        ->get();
-                    
-            foreach($audioList as $audio){
-                $createdDate = Carbon\Carbon::parse($audio->upload_at)->format('d/m/Y');
-                $audioPath = $this->app_url.'/storage/app/public/audios/'.$audio->audioName;
-
-                $audioData .= "<div id=\"audio-list\" class=\"tab-pane music-name-outer audiol-library audio_$audio->id\">
-                            <div class=\"both-music-name music-first\">
-                                <audio id=\"aid_$audio->id\" preload='none'>
-                                    <source loop=\"false\" src=\"$audioPath\" type='audio/mpeg' />
-                                </audio>
-                                <span id=\"audioControl$audio->id\" class=\"glyphicon glyphicon-play-circle\" onClick=\"playAudio(this.id);\"></span>
-                                <span class=\"title\">$audio->audioTitle</span>
-                                <span class=\"edit delete delaudio left-side\" data-id=\"$audio->id\" data-uid=\"$audio->user_id\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></span>
-                                <div class=\"date-title created\">created: $createdDate</div>
-                            </div>
-                            <div class=\"music-voice\">
-                                <span id=\"staid_$audio->id\">0:00</span> <span id=\"duraid_$audio->id\" class=\"duration\">0:00</span>
-                                <input type=\"range\" onchange=\"getVolume(this.id);\" id=\"myRange$audio->id\" class=\"aid_$audio->id\" step=\"any\" value=\"0\">
-                            </div>
-                        </div>";
-            }
-        }
-
-        echo $audioData;
-        //print_r($userList);        
-    }
-
-    public function pictureListBySize(){
-        $data  = Request::all();
-
-        $picData = "";        
-        DB::enableQueryLog();
-        $name = \Auth::user()->name;
-        $user = Auth::user();
-        $role = Auth::user()->role;        
-        $startLimit = $data['limit'];
-
-        if(array_key_exists('method', $data) && !empty($data['method']) && $data['method'] == 'allpictures'){
-
-            $pictureList = DB::table('images')                    
-                        ->orderBy('id', 'ASC')
-                        ->offset($startLimit)
-                        ->take(4) 
-                        ->get();
-            //print_r(DB::getQueryLog());
-                    
-            foreach($pictureList as $picture){
-                $createdDate = Carbon\Carbon::parse($picture->uploaded_at)->format('d/m/Y');
-                $imgThumbPath = $this->app_url.'/storage/app/public/images/thumbs/thumb_'.$picture->image_name;
-                $imgPath = $this->app_url.'/storage/app/public/images/'.$picture->image_name;
-
-                $picData .= "<div class=\"col-md-3 col-sm-6 pictCls pict_$picture->id\"><div class=\"video-first-outer\">
-                            <div class=\"video-images\"><a href=\"$imgPath\" data-lightbox=\"example-2\"><img src=\"$imgThumbPath\"></a></div>
-                            <div class=\"video-title\">
-                                <span class=\"date-title\">Created: $createdDate</span>
-                                <span class=\"edit delete delpict\" data-id=\"$picture->id\" data-uid=\"$picture->user_id\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></span>
-                            </div></div></div>";
-            }
-        }
-
-        echo $picData;
-        //print_r($userList);        
-    }
-    
-    public function videoDetail(){
-        DB::enableQueryLog();
-        $name = \Auth::user()->name;
-        $user = Auth::user();
-        $role = Auth::user()->role;
-        $data  = Request::all();
-
-        if(array_key_exists('vid', $data) && !empty($data['vid'])){
-
-            $videoData = DB::table('videos')
-                        ->where('videos.id','=', $data['vid'])
-                        ->first();                       
-            if(!empty($videoData)){
-                return View::make('adminVideo', compact('videoData')); 
-            }else{
-                echo "Please check the video id.";
-            }
-        }else{
-            echo "Please check the video id.";
-        }   
-    }
-
     ///////////////////////// DELETE VIDEO ///////////////////////////////
     public function deleteVideo(){
 
@@ -527,33 +401,7 @@ class AdminController extends Controller
                 }
             }
         }
-    }
-
-    ///////////////////////// DELETE USER ///////////////////////////////
-    public function deleteUser(){
-
-        DB::enableQueryLog();
-        $data  = Request::all();
-        $user = \Auth::user();
-        $role = Auth::user()->role;
-                
-        if(count($data) > 0){
-            if(array_key_exists('uid', $data) && !empty($data['uid'])){
-                      
-                $status = DB::table('users')->where('id', '=', $data['uid'])                    
-                        ->delete();
-                $userList = DB::table('users')
-                        ->select(DB::raw('users.*, (SELECT count(videos.user_id) FROM videos WHERE users.id = videos.user_id) as videocount')) 
-                        ->get();  
-
-                if($status > 0){
-                    echo "";
-                }else{
-                    echo "Failed!";
-                }
-            }
-        }
-    }
+    }    
 
     public function addPicture(){
     	$data = Request::all();        

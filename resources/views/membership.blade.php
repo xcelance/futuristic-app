@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
- <section class="Futuristic_Skills">
+ <section class="banner Futuristic_Skills inner-page">
 	<div class="container">
 	<div class="custom_nav"><nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -19,12 +19,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
    
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://futuristicskillscommunity.org/futuristics">Futuristic Skills</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="http://futuristicskillscommunity.org/membership">Membership</a></li>
+        <li><a href="{{url('/')}}">Futuristic Skills</a></li>
+        <li><a href="{{url('services')}}">Services</a></li>
+        <li><a href="{{url('membership')}}">Membership</a></li>
 <!--         <li><a href="#">Impact</a></li>
         <li><a href="#">Blog</a></li> -->
-        <li><a href="http://futuristicskillscommunity.org/contact-us">Contact</a></li>
+        <li><a href="{{url('contact-us')}}">Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -39,8 +39,8 @@
 <section class="membership_outer">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-sm-4 col-md-offset-2 col-sm-offset-2">
-				<div class="border96">
+			<div class="col-md-4 col-sm-6 col-md-offset-2">
+				<div class="border96 school">
 				<img src="public/images/home.png">  
 				</div>
 				<div class="text_gry">
@@ -55,8 +55,8 @@
 					
 				</div>
 			</div>
-			<div class="col-md-4 col-sm-4 indiviual_membership">
-				<div class="border96">
+			<div class="col-md-4 col-sm-6 indiviual_membership">
+				<div class="border96 individual">
 				<img src="public/images/girl.png">  
 				</div>
 				<div class="text_gry">
@@ -73,15 +73,16 @@
 			</div>
 		</div>
 		<div class="">
-			<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+			<div class="col-md-6 col-sm-12 col-md-offset-3 ">
+				<a href="{{url('signup')}}">
 					<div class="member">
-							<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-
+						<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 					</div>
 					<div class="membership_option">
-					<h1>SEE FUTURISTIC WEB APP</h1>
+						<h1>SEE FUTURISTIC WEB APP</h1>
 					</div>
-				</div>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>

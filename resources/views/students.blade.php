@@ -14,7 +14,17 @@
                                 <div class="school_name"><b>School Name :</b> {{$studentData->school_name}}</div>
                                 <div class="dob"><b>Dob  :  </b>{{$studentData->dob}}</div>
                                 <div class="year_school"><b>Year in school :</b>{{$studentData->year_in_school}}</div>
-                                <div class="year_school"><b>Video Reviews:</b>{{$studentData->video_reviews}}</div>
+
+                                @foreach($videoReviewed as $videoReview)
+                                    <div class="year_school"><b>{{$videoReview->module_name}}:</b> 
+                                        @if($videoReview->video_reviews > 0)
+                                            Viewed
+                                        @else
+                                            Not viewed
+                                        @endif
+                                    </div>
+                                @endforeach                                
+
                             </div>                               
                         </div>
                         <div class="_left_side">  

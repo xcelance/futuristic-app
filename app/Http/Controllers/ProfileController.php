@@ -39,6 +39,11 @@ class ProfileController extends Controller
                         ->get()->toArray();
         $paymentData = DB::table('payments')
             ->where('payments.user_id', Auth::user()->id)->first();
+
+        // echo '<pre>';
+        // print_r($responseData);
+        // print_r($paymentData);
+        // die;
            
         return View::make('profile', compact('userData', 'paymentData', 'responseData'));
     }
@@ -140,7 +145,7 @@ class ProfileController extends Controller
         $name = \Auth::user()->name;
         $user = Auth::user();
         $role = Auth::user()->role;
-        $data  = Request::all();
+        $data = Request::all();
 
         if(array_key_exists('sid', $data) && !empty($data['sid'])){
             $sid = $data['sid'];
@@ -148,19 +153,39 @@ class ProfileController extends Controller
                          ->select(DB::raw('fs_users.*, (SELECT count(fs_reviews.user_id) FROM fs_reviews WHERE fs_users.id = fs_reviews.user_id) AS video_reviews'))
                         ->where('users.id','=', $sid)
                         ->first();
-            $responseData =  DB::table('quiz_response')                            
+
+                        // SELECT `fs_modules`.*, `fs_reviews`.* FROM `fs_modules` LEFT JOIN `fs_reviews` ON `fs_modules`.id = `fs_reviews`.`module_id` WHERE `fs_reviews`.`user_id`= 2
+
+            $videoReviewed  =  DB::table('modules')  
+                            ->select(DB::raw('fs_modules.id, fs_modules.module_name, (SELECT count(`fs_reviews`.user_id) FROM `fs_reviews` WHERE `fs_modules`.id = `fs_reviews`.module_id AND `fs_reviews`.`user_id`= '.$sid.') AS video_reviews'))                            
+                            ->get()->toArray();
+            
+            $responseData   =  DB::table('quiz_response')                            
                             ->where('quiz_response.user_id','=', $sid)                            
                             ->get()->toArray();       
 
-            return View::make('students', compact('studentData', 'sid', 'responseData'));
-        }else{      
-            $studentList = DB::table('users')
+            return View::make('students', compact('studentData', 'sid', 'responseData', 'videoReviewed'));
+        }else{
+
+            if($user->role == '1'){
+                $studentList = DB::table('users')
                          ->select(DB::raw('fs_users.*, (SELECT count(fs_reviews.user_id) FROM fs_reviews WHERE fs_users.id = fs_reviews.user_id) AS video_reviews'))
                         ->where('users.role','=', '0')
+                        ->where('users.school_name','=', strtolower($user->school_name))
                         ->get();
-            $tstudent = DB::table('users')                      
+                $tstudent = DB::table('users')                      
                         ->where('users.role','=', '0')
+                        ->where('users.school_name','=', strtolower($user->school_name))
                         ->count();
+            }else{
+                $studentList = DB::table('users')
+                         ->select(DB::raw('fs_users.*, (SELECT count(fs_reviews.user_id) FROM fs_reviews WHERE fs_users.id = fs_reviews.user_id) AS video_reviews'))
+                        ->where('users.role','=', '0')                        
+                        ->get();
+                $tstudent = DB::table('users')                      
+                        ->where('users.role','=', '0')                        
+                        ->count();
+            }            
                         
             return View::make('students', compact('studentList', 'tstudent'));
         }

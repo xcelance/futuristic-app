@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Futuristic Skills',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://xcelanceweb.com/futuristic'),
+    'url' => env('APP_URL', 'http://futuristicskillscommunity.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -104,6 +104,7 @@ return [
     */
 
     'key' => env('APP_KEY'),
+    'mailchimp' => env('MAILCHIMP_API_KEY'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -167,7 +168,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-
+    
         /*
          * Application Service Providers...
          */
@@ -175,7 +176,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,     
+        Skovmand\Mailchimp\MailchimpServiceProvider::class,   
 
     ],
 
@@ -224,7 +226,7 @@ return [
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
+        'View' => Illuminate\Support\Facades\View::class,        
 
     ],
 

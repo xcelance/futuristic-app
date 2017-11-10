@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 	
-	<section class="modules_list">
+	<section class="modules_list modules01">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -13,9 +13,9 @@
                         @foreach($modulelist as $module)
                             <div class="signin_box1">
                                 @if($module->id == '1')                                
-                                    <a href="{{url('EQ')}}"><h5>{{$module->module_name}}</h5></a>
-                                @elseif($module->id == '2')
                                     <a href="{{url('SMB')}}"><h5>{{$module->module_name}}</h5></a>
+                                @elseif($module->id == '2')
+                                    <a href="{{url('EQ')}}"><h5>{{$module->module_name}}</h5></a>
                                 @endif
                             </div>   
                         @endforeach

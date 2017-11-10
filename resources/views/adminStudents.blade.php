@@ -16,7 +16,16 @@
                                 <div class="year_school"><b>Year in school :</b>{{$studentData->year_in_school}}</div>
                                 <div class="payment_mode"><b>Payment mode :</b>{{$studentData->payment_mode}}</div>
                                 <div class="payment"><b>Payment :</b>{{$studentData->payment_mode}}</div>
-                                <div class="payment"><b>Video Reviews :</b>{{$studentData->video_reviews}}</div>
+
+                                @foreach($videoReviewed as $videoReview)
+                                    <div class="year_school"><b>{{$videoReview->module_name}}:</b> 
+                                        @if($videoReview->video_reviews > 0)
+                                            Viewed
+                                        @else
+                                            Not viewed
+                                        @endif
+                                    </div>
+                                @endforeach                                  
                             </div> 
 
                             @foreach($responseData as $key => $response)   
@@ -320,7 +329,7 @@
                                         <td>{{$student->email}}</td>
                                         <td>{{$student->payment_mode == 'R' ? 'Monthly' : ($student->payment_mode == 'O' ? 'Onetime' : 'Pending') }}</td>  
                                         <td>{{$student->video_reviews}}</td>                                      
-                                        <td><a href="{{url('admin/students/?sid=')}}{{$student->id}}"><span><i class="fa fa-eye" aria-hidden="true"></i></span></a><a href="javascript:void(0);"  data-id="{{$student->id}}" class="deluser"><span class="edit delete"><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
+                                        <td><a href="{{url('admin/students/?sid=')}}{{$student->id}}"><span><i class="fa fa-eye" aria-hidden="true"></i></span></a><a href="{{url('admin/deluser/?uid=')}}{{$student->id}}"  data-id="{{$student->id}}" class="deluser"><span class="edit delete"><i class="fa fa-trash" aria-hidden="true"></i></span></a></td>
                                     </tr>
                                 @endforeach                             
                             </tbody>

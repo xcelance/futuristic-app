@@ -7,15 +7,15 @@
             <div class="col-md-6">
                 <div class="signin_left_side">
                     <div class="signin_box1">
-                    <a href="#"><h5>Parents! Support your child's education with an individual subscription</h5></a>
+                    <a href="{{url('signup')}}"><h5>Parents! Support your child's education with an individual subscription</h5></a>
                     </div>
                     <div class="signin_box1">
-                        <a href=""><h5>Top student profile</h5></a>
+                        <a href="http://www.futuristicskills.com/futuristicblog"><h5>Top student profile</h5></a>
                     </div>
                     <div class="icon_outer">
                         <a href="https://www.facebook.com/FuturisticSkills/"><img class="facebook01" src="public/images/facebook-icon.png"></a>
                         <a href="https://www.instagram.com/futuristicskills/"><img class="facebook01" src="public/images/Instagram_icon.png"></a>
-                        <img class="facebook01" src="public/images/w_key.png">
+                        <a href="mailto:hello@futuristicskills.com"><i class="fa fa-envelope social_gmail01" aria-hidden="true"></i></a>
                         <a href="https://www.linkedin.com/company/18205820/"><img class="facebook01" src="public/images/square-linkedin-512.png"></a>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                             @endif
                         </div>
                         <div class="terms">
-                            <input type="checkbox" name="terms" value="1" required><a href=""> I agree to the Terms and Conditions</a> to enter Futuristic
+                            <input type="checkbox" name="terms" value="1" required><a href="{{url('terms-and-conditions')}}"> I agree to the Terms and Conditions</a> to enter Futuristic
                         </div>
                         <div class="btn_outer101">
                             <button type="submit" class="btn btn-primary" name="login">Enter the platform</button>

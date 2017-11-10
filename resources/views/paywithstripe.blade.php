@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<section class="payment001">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -18,17 +19,17 @@
                 </div>
                 <?php Session::forget('error');?>
                 @endif
-                <div class="panel-heading">Paywith Stripe</div>
+                <div class="panel-heading"><h3>Buy annual subscription</h3></div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{{url('stripe')}}" >
                         {{ csrf_field() }}                        
 
-                        <div class="form-group{{ $errors->has('card_no') ? ' has-error' : '' }}">
-                            <label for="card_no" class="col-md-4 control-label">Payment</label>
+                        <div class="form-group{{ $errors->has('card_no') ? ' has-error' : '' }}">                           
                             <div class="col-md-6">
                                 <input type="hidden" name="user_id" value="{{$user->id}}" required>
-                                <input type="radio" name="payment" value="O" checked=""> One time
-                                <input type="radio" name="payment" value="R" > Monthly
+                                <input type="hidden" name="payment" value="O">
+                                <!-- <input type="radio" name="payment" value="R" > Buy annual subscription -->
+                                <input type="hidden" name="amount" value="8500" >                                
                                 @if ($errors->has('payment'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('payment') }}</strong>
@@ -51,7 +52,7 @@
                         <div class="form-group{{ $errors->has('ccExpiryMonth') ? ' has-error' : '' }}">
                             <label for="ccExpiryMonth" class="col-md-4 control-label">Expiry Month</label>
                             <div class="col-md-6">
-                                <input id="ccExpiryMonth" type="text" size="2" class="form-control" name="ccExpiryMonth" value="{{ old('ccExpiryMonth') }}" autofocus required="">
+                                <input id="ccExpiryMonth" type="text" size="2" class="form-control" name="ccExpiryMonth" placeholder="MM" value="{{ old('ccExpiryMonth') }}" autofocus required="">
                                 @if ($errors->has('ccExpiryMonth'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('ccExpiryMonth') }}</strong>
@@ -62,7 +63,7 @@
                         <div class="form-group{{ $errors->has('ccExpiryYear') ? ' has-error' : '' }}">
                             <label for="ccExpiryYear" class="col-md-4 control-label">Expiry Year</label>
                             <div class="col-md-6">
-                                <input id="ccExpiryYear" type="text" size="4" class="form-control" name="ccExpiryYear" value="{{ old('ccExpiryYear') }}" autofocus required="">
+                                <input id="ccExpiryYear" type="text" size="4" class="form-control" name="ccExpiryYear" placeholder="YYYY" value="{{ old('ccExpiryYear') }}" autofocus required="">
                                 @if ($errors->has('ccExpiryYear'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('ccExpiryYear') }}</strong>
@@ -85,7 +86,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Paywith Stripe
+                                    Pay $85(USD)
                                 </button>
                             </div>
                         </div>
@@ -95,4 +96,5 @@
         </div>
     </div>
 </div>
+</section>
 @endsection
